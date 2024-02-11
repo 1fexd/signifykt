@@ -1,33 +1,16 @@
+import fe.plugin.library.LibraryConfig.Companion.library
+import fe.plugin.library.bundle
+
 plugins {
-    kotlin("jvm")
-    id("net.nemerosa.versioning") version "3.0.0"
-    `maven-publish`
+    id("com.gitlab.grrfe.common-gradle-plugin")
 }
 
-group = "fe.signify"
-version = versioning.info.tag ?: versioning.info.full
-
-repositories {
-    mavenCentral()
+library("fe.signify") {
+    jvm.set(17)
 }
 
 dependencies {
-    implementation("com.google.crypto.tink:tink:1.12.0")
-
-//    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = project.group.toString()
-            version = project.version.toString()
-
-            from(components["java"])
-        }
+    bundle("com.google.crypto.tink:tink:1.12.0") {
+        minimize = true
     }
 }

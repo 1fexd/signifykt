@@ -1,4 +1,2 @@
 jdk:
   - openjdk11
-env:
-  DISABLE_TESTING_MODULE: true
