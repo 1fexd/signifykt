@@ -5,7 +5,7 @@ import java.util.*
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
 
-class Signature private constructor(val algorithm: ByteArray, val keyNumber: ByteArray, val signature: ByteArray) {
+class Signature private constructor(algorithm: ByteArray, val keyNumber: ByteArray, val signature: ByteArray) {
     companion object {
         private const val KEY_ALGORITHM_LEN: Int = 2
         private const val KEY_NUMBER_LEN: Int = 8
