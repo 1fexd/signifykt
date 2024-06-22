@@ -10,7 +10,7 @@ library("fe.signify") {
 }
 
 dependencies {
-    bundle("com.google.crypto.tink:tink:1.12.0") {
+    bundle("com.google.crypto.tink:tink:1.13.0") {
         minimize = true
     }
 }
