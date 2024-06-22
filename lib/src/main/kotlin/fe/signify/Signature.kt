@@ -10,8 +10,7 @@ class Signature private constructor(algorithm: ByteArray, val keyNumber: ByteArr
         private const val KEY_ALGORITHM_LEN: Int = 2
         private const val KEY_NUMBER_LEN: Int = 8
 
-        private const val DECODED_PUBLIC_KEY_LEN: Int =
-            KEY_ALGORITHM_LEN + KEY_NUMBER_LEN + Ed25519Verify.PUBLIC_KEY_LEN
+        private const val DECODED_PUBLIC_KEY_LEN: Int = KEY_ALGORITHM_LEN + KEY_NUMBER_LEN + Ed25519Verify.SIGNATURE_LEN
         private val SUPPORTED_ALGORITHM = "Ed".toByteArray()
 
         @OptIn(ExperimentalEncodingApi::class)
@@ -25,7 +24,7 @@ class Signature private constructor(algorithm: ByteArray, val keyNumber: ByteArr
             }
 
             val keyNumber = Arrays.copyOfRange(decoded, KEY_ALGORITHM_LEN, 2 + KEY_NUMBER_LEN)
-            val signature = Arrays.copyOfRange(decoded, 10, 10 + Ed25519Verify.PUBLIC_KEY_LEN)
+            val signature = Arrays.copyOfRange(decoded, 10, 10 + Ed25519Verify.SIGNATURE_LEN)
 
             return Signature(algorithm, keyNumber, signature)
         }
