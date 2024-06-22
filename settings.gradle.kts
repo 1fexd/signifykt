@@ -1,4 +1,4 @@
-rootProject.name = "signifykt"
+rootProject.name = "signify"
 
 pluginManagement {
     repositories {
